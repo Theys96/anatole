@@ -1,0 +1,4 @@
+{{ $js := resources.Get "js/anatole.js" | resources.Minify }}
+<script>
+{{ print $js.Content | safeJS }}
+</script>

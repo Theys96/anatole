@@ -1,0 +1,77 @@
+baseURL: "https://www.thijshavinga.nl/"
+languageCode: "en-us"
+title: "Thijs Havinga, Software Engineering"
+disableKinds: ["taxonomy", "taxonomyTerm"]
+DefaultContentLanguage: en
+summaryLength: 10
+
+# Google Analytics
+#googleAnalytics = "UA-123-45"
+
+# I like the illusion of privacy these settings give
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+
+theme: "anatole"
+params:
+  title: "Thijs Havinga"
+  author: "Thijs Havinga, Software Engineering"
+  meta_description: Software Engineer, University of Groningen
+  tagline: |
+    Software Engineer<br />
+    University of Groningen
+  profilePicture: "/images/profile.jpg"
+  kvk: "KvK XXXXXX"
+  btw: "btw-id NLXXXXXB01"
+  favicon: /images/
+  socialIcons:
+    - class: "fa-linkedin"
+      title: "Linkedin"
+      url: "https://www.linkedin.com/in/thijshavinga/"
+    - class: "fa-github"
+      title: "GitHub"
+      url: "https://github.com/theys96/"
+    - class: "fa-envelope"
+      title: "e-mail"
+      url: "mailto:info@thijshavinga.nl"
+    - class: "fa-phone phone-toggle"
+      title: "phone"
+      url: "#"
+
+languages:
+  en:
+    languageName: English
+    weight: 1
+    menu:
+      main:
+        - name: "Projects"
+          identifier: "projects"
+          weight: 300
+          url: "/projects/"
+        - name: "About me"
+          identifier: "about"
+          weight: 200
+          url: "/about/"
+        - name: "Blog"
+          identifier: "blog"
+          weight: 400
+          url: "/blog/"
+  nl:
+    languageName: Nederlands
+    weight: 2
+    menu:
+      main:
+        - name: "Projecten"
+          identifier: "projecten"
+          weight: 300
+          url: "/projecten/"
+        - name: "Over mij"
+          identifier: "over-mij"
+          weight: 200
+          url: "/over-mij/"
+        - name: "Blog"
+          identifier: "blog"
+          weight: 400
+          url: "/blog/"

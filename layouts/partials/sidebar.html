@@ -1,25 +1,30 @@
-<div class="sidebar animated fadeInDown">
-    <div class="logo-title">
-      <div class="title">
-        <img src="{{ .Site.Params.profilePicture | absURL }}" alt="profile picture">
-        <h3 title=""><a href="/">{{ .Site.Params.Title }}</a></h3>
-        <div class="description">
-          <p>{{ .Site.Params.description }}</p>
-        </div>
+<div class="{{ if $.Page.IsHome }}full-sidebar{{ end }} sidebar animated fadeInDown">
+  <div class="logo-title">
+    <div class="title">
+      {{- $resource := resources.Get .Site.Params.profilePicture -}}
+      {{- $profileImg := $resource.Resize "x200 q100" -}}
+      <img src="{{ $profileImg.RelPermalink }}" alt="profile picture">
+      <h3 title=""><a href="{{ "/" | relLangURL }}">{{ .Site.Params.Title }}</a></h3>
+      <div class="description">
+        <p>{{ .Site.Params.tagline | safeHTML }}</p>
       </div>
     </div>
-    <ul class="social-links">
-        {{ range $item := .Site.Params.socialIcons }}
-        <li>
-        <a href="{{ $item.url }}" rel="me" aria-label="{{ $item.title }}">
-          <i class="fa fa-2x {{ $item.icon }}" aria-hidden="true"></i>
-        </a>          
-        </li>
-
-        {{ end }}
-    </ul>
-    <div class="footer">
-        <div class="by_farbox">&copy; {{ .Site.Params.author }} {{ now.Format "2006"}} </div>
-      </div>
+  </div>
+  <ul class="social-links">
+    {{ range $item := .Site.Params.socialIcons }}
+    <li>
+    <a href="{{ $item.url }}" rel="me" aria-label="{{ $item.title }}">
+      <i class="fa fa-2x {{ $item.class }}" aria-hidden="true"></i>
+    </a>          
+    </li>
+    {{ end }}
+  </ul>
+  <p id="phone">(+31) 06-48469162</p>
+  
+  <div class="footer">
+    <div class="by_farbox">&copy; {{ .Site.Params.author }} {{ now.Format "2006"}}<br />
+      {{ if isset .Site.Params "kvk" }}{{ .Site.Params.kvk }}{{ end }}
+      {{ if isset .Site.Params "btw" }}{{ if isset .Site.Params "kvk" }} | {{ end }}{{ .Site.Params.btw }}{{ end }}
     </div>
+  </div>
 </div>

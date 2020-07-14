@@ -45,9 +45,24 @@ function switchTheme(e) {
     }
 }
 
+// Toggle phone view
+function togglePhone(e) {
+    console.log($('#phone'))
+    if ($('#phone').is(":visible")) {
+        $('#phone').fadeOut();
+    } else {
+        $('#phone').fadeIn();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.querySelector('.theme-switch');
     themeSwitcher.addEventListener('click', switchTheme, false);
+
+    var phoneToggle = document.querySelector('.phone-toggle');
+    if (phoneToggle) {
+        phoneToggle.addEventListener('click', togglePhone, false);
+    }
 }, false);
 
 init();

@@ -1,11 +1,23 @@
+@font-face {
+  font-family: Palanquin;
+  src: url(/fonts/palanquin-regular.ttf) format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: Palanquin;
+  src: url(/fonts/palanquin-bold.ttf) format('truetype');
+  font-weight: bold;
+  font-display: swap;
+}
+
 @charset "UTF-8";
 :root{
-  --bg-color:#fff;
+  --bg-color:#fffff3;
   --secondary-bg-color:#eeeeee;
-  --heading-color: #5f5f5f;
+  --heading-color: #64bdaa; /* 4a877a, 5f5f6f */
   --body-color: rgba(0, 0, 0, 0.7);
   --post-color: rgba(0, 0, 0, 0.44);
-  --border-color: rgba(0, 0, 0, 0.15);
+  --border-color: rgba(123, 212, 193, 0.45); /* rgba(0, 0, 0, 0.15); */
   --pre-bg-color: #f9f9fd;
   --nav-text-color:#5a5a5a;
   --tag-color: #424242;
@@ -13,10 +25,10 @@
 }
 
 html[data-theme='dark'] {
-  --bg-color:#292a2d;
+  --bg-color: #191a2d; /* #292a2d, 292a3d */
   --secondary-bg-color:rgb(119, 119, 122);
-  --heading-color: rgb(169,169,179);
-  --body-color:rgb(169,169,179);
+  --heading-color: #a17c4d; /* ba8f59 */
+  --body-color: rgb(169,169,169); /* rgb(169,169,179); */
   --post-color: rgba(0, 0, 0, 0.44);
   --border-color: rgb(38, 38, 38);
   --pre-bg-color:rgb(33,33,45);
@@ -93,71 +105,13 @@ a:hover, a:active {
 }
 
 /*basic styles ends*/
-/*animation starts*/
 
-.animated {
-  transition: top .8s linear;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
-}
-
-.animated.hinge {
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
-}
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    -webkit-transform: translateY(-20px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-  }
-}
-@-moz-keyframes fadeInDown {
-  0% {
-    -moz-transform: translateY(-20px);
-  }
-  100% {
-    -moz-transform: translateY(0);
-  }
-}
-@-o-keyframes fadeInDown {
-  0% {
-    -o-transform: translateY(-20px);
-  }
-  100% {
-    -o-transform: translateY(0);
-  }
-}
-@keyframes fadeInDown {
-  0% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  -moz-animation-name: fadeInDown;
-  -o-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-}
-
-/*animation ends*/
 .content {
   height: auto;
   float: right;
   width: 60%;
   margin-top: 60px;
+  padding-top: 1em;
 }
 
 .page-top {
@@ -174,6 +128,7 @@ a:hover, a:active {
   padding: 11px 30px;
   float: left;
   font-size: 12px;
+  font-weight: bold;
 }
 .page-top .nav li {
   position: relative;
@@ -193,7 +148,7 @@ a:hover, a:active {
 }
 .page-top .themeswitcher {
   list-style: none;
-  padding: 15px 30px;
+  padding: 15px 10px;
   float: right;
   font-size: 1.6em;
 }
@@ -220,6 +175,13 @@ a:hover, a:active {
   padding-right: 40px;
 }
 
+.page-top .langs {
+  float: right;
+  padding: 25px 0px;
+  line-height: 10px;
+  font-size: 10px;
+}
+
 .sidebar {
   width: 40%;
   -webkit-background-size: cover;
@@ -234,7 +196,7 @@ a:hover, a:active {
 }
 .sidebar .logo-title {
   text-align: center;
-  padding-top: 240px;
+  padding-top: 160px;
 }
 .sidebar .logo-title .description {
   font-size: 14px;
@@ -247,7 +209,7 @@ a:hover, a:active {
   border-radius: 50%;
 }
 .sidebar .logo-title .title h3 {
-  text-transform: uppercase;
+  font-family: Palanquin;
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 2px;
@@ -281,9 +243,15 @@ a:hover, a:active {
   color: #2660ab;
 }
 
+.sidebar #phone {
+  text-align: center;
+  display: none;
+}
+
 .post {
   background-color: var(--bg-color);
-  margin: 30px;
+  margin: 15px;
+  margin-left: 30px;
 }
 .post .post-title h1 {
   text-transform: uppercase;
@@ -300,7 +268,7 @@ a:hover, a:active {
   color: var(--heading-color);
 }
 .post .post-title h3 {
-  text-transform: uppercase;
+  font-family: Palanquin;
   letter-spacing: 1px;
   line-height: 1;
   font-weight: 600;
@@ -334,11 +302,13 @@ a:hover, a:active {
   font-size: 16px;
 }
 .post .post-content img {
-  max-width: 100%;
+  max-width: 40%;
+  float: right;
+  border-radius: 5px;
+  margin: 10px;
 }
 .post .post-footer {
   padding: 0 0 10px 0;
-  border-bottom: 1px solid var(--border-color);
 }
 .post .post-footer .meta {
   max-width: 100%;
@@ -480,10 +450,10 @@ a:hover, a:active {
   padding: 0;
 }
 .list-with-title .listing-title {
-  font-size: 24px;
-  color: #666666;
+  font-size: 1.2em;
+  color: var(--heading-color);
   font-weight: 600;
-  line-height: 2.2em;
+  line-height: 1.2em;
 }
 .list-with-title .listing {
   padding: 0;
@@ -718,6 +688,25 @@ a.btn {
 }
 
 
+.full-sidebar {
+  width: 100%;
+  position: absolute;
+  border-right: none;
+  z-index: 1;
+}
+.full-sidebar .logo-title {
+  padding-top: 120px;
+}
+.full-sidebar .logo-title .title img {
+  width: 100px;
+}
+.full-sidebar .logo-title .title h3 {
+  font-size: 20px;
+}
+
+.full-page-top {
+  width: 100%;
+}
 
 @media screen and (max-width: 960px) {
   .sidebar {
